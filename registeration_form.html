@@ -1,0 +1,82 @@
+<Html>
+    <head> 
+    <title>
+    Registration Page
+    </title>
+    <style>
+        body{
+          
+          background-color: grey;
+          display: flex;
+          justify-content: center;
+          align-item: center;
+        }
+        #form-container{
+            background-color: orange;
+            padding:50px;
+            text-align:center;
+        }
+        .error{
+            color: red;
+            margin: 0px;
+            text-align: left;
+        }
+    </style>
+    </head>
+    <body>
+    <br>
+   ttt <br>
+    <div id="form-container">
+        <h2> Registration form</h2>
+    <form action="" onsubmit="return validateform()">
+    
+    <label> Firstname </label> 
+    <input type="text" name="firstname" size="15" required> <br> <br>
+    <label> Lastname: </label>
+    <input type="text" name="lastname" size="15" required> <br> <br>
+    <label> email: </label>
+    <input type="email" id="email" placeholder="email" name="email" required><br><br>
+    <p id="emailError" class="error"></p>
+    <label> Password: </label>
+    <input type="Password" id="Password" placeholder="Password" name="Password" required><br> <br>
+    <p id="passError" class="error"></p>
+    <label> Confirm Password: </label>
+    <input type="Password" id="confirmpass" placeholder="re_enter" name="confirmpass" required><br> <br>
+    <p id="confirmpassError" class="error"></p>
+    <input type="submit" value="submit"/>    
+    </form>
+    </div>
+
+    <script>
+        let Password= document.getelementbyid("Password");
+        let confirmpass= document.getelementbyid("confirmpass");
+        let flag = 1;
+
+
+        function validateform(){
+            if(Password.value.length <5){
+                document.getelementbyid("passError").innerhtml="Password is invalid.";
+                flag= 0;
+
+            }else{
+                document.getelementbyid("passError").innerhtml="";
+                flag= 1;
+            }
+
+            if(confirmpass != Password){
+                document.getelementbyid("confirmpassError").innerhtml="password value is not matching";
+                flag= 0
+
+            }else{
+                document.getelementbyid("confirmpassError").innerhtml="";
+                flag= 1;
+            }
+            if(flag){
+                return true;
+            }else{
+                return false;
+            }
+            return true;
+        }
+    </script>
+</html>
